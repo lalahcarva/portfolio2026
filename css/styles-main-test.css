@@ -1,0 +1,433 @@
+:root {
+  --dark-blue: #3F4B7F;
+  --dark-red: #79211F;
+
+  --lighter-purple: #E0E0ED;
+  --light-purple: #D0D0DD;
+
+  --light-yellow: #FEF8E9;
+}
+
+/* FONTS */
+.cedarville-cursive-regular {
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-font { 
+      font-family: "Poppins", sans-serif;
+      color: var(--dark-red);
+}
+
+/* GLOBAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #FEF8E9;
+    overflow-x: hidden;
+
+    padding-top: 80px; /* 👈 adjust if needed */
+}
+
+/* NAV */
+.navbar {
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: var(--dark-red);
+    font-size: 19px;
+}
+
+.nav-link {
+    color: white;
+    margin: 6px 35px;
+}
+
+/* ========================= */
+/* HERO
+/* ========================= */
+
+.hero-bg {
+    min-height: 80vh;        
+    display: flex;
+    align-items: center;       /* keeps content centered vertically */
+    padding: 0;
+
+    background: repeating-linear-gradient(
+        to right,
+        #E0E0ED 0px,
+        #E0E0ED 80px,
+        #FEF8E9 80px,
+        #FEF8E9 160px
+    );
+}
+
+.hero-container {
+    width: 80%;
+    margin: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+
+    align-items: center;
+}
+
+.hero-text,
+.hero-image {
+    flex: 1;
+    min-width: 280px;
+}
+
+.hero-cursive {
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 50px;
+    color: #79211F;
+    margin: 0;
+
+    display: inline-block;
+    transform: rotate(-2deg); /* slight handwritten tilt */
+}
+
+.hero-cursive {
+    opacity: 0;
+    animation: writeIn 1.2s ease forwards;
+}
+
+/* delay each line so it feels natural */
+.hero-text .hero-cursive:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+.hero-text .hero-cursive:nth-of-type(3) {
+    animation-delay: 0.6s;
+}
+
+/* writing effect */
+@keyframes writeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) rotate(-2deg);
+        filter: blur(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(-2deg);
+        filter: blur(0);
+    }
+}
+
+.profileimg {
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin: auto;
+}
+
+/* TEXT */
+.intro {
+    color: #79211F;
+    font-family: 'Arima', cursive;
+}
+
+.title-main {
+    font-size: 120px;
+    color: var(--dark-blue);
+    margin: 0;
+    transform: rotate(-1deg);
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    margin-left: 100px;
+    white-space: nowrap; /* 👈 THIS FIXES YOUR ISSUE */
+}
+
+.cursive-letter {
+    font-family: "Cedarville Cursive", cursive;
+    display: inline-block;
+    transform: rotate(-3deg);
+    font-size: 130px;
+}
+
+.tiny-space {
+    margin-left: 15px;
+}
+
+.tiny-space2 {
+    margin-left: 5px;
+}
+
+.tiny-space3 {
+    margin-left: -10px;
+}
+
+.title-large {
+    font-size: 70px;
+    color: white;
+    -webkit-text-stroke: 2px #79211F;
+    margin: 0;
+}
+
+.title-small {
+    font-size: 80px;
+    color: #79211F;
+    margin: 0;
+}
+
+.title-row {
+    text-align: right;
+}
+
+.hero-desc {
+    width: 70%;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 22px;
+      font-family: "Poppins", sans-serif;
+
+}
+
+/* ========================= */
+/* PROJECTS (FIXED 2 ROWS)
+/* ========================= */
+
+.projects {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    color: #79211F;
+    margin-bottom: 40px;
+}
+
+/* FORCE 3 COLUMNS = 2 ROWS */
+.projects-grid {
+    width: 80%;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 300px); 
+    justify-content: center;
+    gap: 100px;
+}
+
+/* FIXED SQUARE */
+.project-card {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+}
+
+/* IMAGE */
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* HOVER */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: #79211F;
+    opacity: 0;
+    transition: 0.4s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card:hover .overlay {
+    opacity: 0.85;
+}
+
+.overlay h4 {
+    color: white;
+    font-family: 'Arima', cursive;
+    text-align: center;
+}
+
+/* ========================= */
+/* SCROLLING TEXT
+/* ========================= */
+
+.skills-marquee {
+    width: 100%;
+    background-color: #3F4B7F;
+    overflow: hidden;
+    padding: 18px 0;
+}
+
+/* container that hides overflow */
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* moving text */
+.marquee-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 25s linear infinite;
+}
+
+/* text style */
+.marquee-track span {
+    color: white;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ========================= */
+/* ABOUT
+/* ========================= */
+
+.about-home {
+    padding: 100px 0;
+    width: 100%;
+}
+
+.about-home {
+    width: 100%;
+    background-color: #E0E0ED;
+    padding: 100px 0;
+}
+
+/* THIS CREATES THE "BOX" */
+.about-container {
+    width: 85%;
+    max-width: 1200px;   /* keeps it from getting too wide */
+    margin: auto;
+
+   /*  background: white;   makes it look like a card */
+    padding: 60px 80px;
+
+    border-radius: 12px;  /* soft modern look */
+}
+
+.about-text h2 {
+    color: #79211F;
+    font-family: 'Arima', cursive;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.about-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #79211F;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about-link:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+    background: #79211F;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+    margin-top: 80px;
+}
+
+footer p {
+    color: white;
+    font-family: 'Arima', cursive;
+}
+
+.socials img {
+    height: 40px;
+    margin: 0 10px;
+}
+
+@media (max-width: 1000px) {
+
+    /* PROJECTS */
+    .projects-grid {
+        grid-template-columns: repeat(2, 300px);
+    }
+
+    /* HERO STRIPES (TABLET) */
+    .hero-bg {
+        background: repeating-linear-gradient(
+            to right,
+            #C1C4E3 0px,
+            #C1C4E3 60px,
+            #FEF8E9 60px,
+            #FEF8E9 120px
+        );
+    }
+
+    .title-main {
+    font-size: 60px;
+
+}
+
+.cursive-letter {
+    font-size: 80px;
+}
+}
+
+@media (max-width: 650px) {
+
+    /* PROJECTS */
+    .projects-grid {
+        grid-template-columns: 300px;
+    }
+
+    /* HERO LAYOUT */
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .title-row {
+        text-align: center;
+    }
+    
+}
+
+@media (max-width: 600px) {
+
+    /* MOBILE STRIPES */
+    .hero-bg {
+        background: repeating-linear-gradient(
+            to right,
+            #C1C4E3 0px,
+            #C1C4E3 35px,
+            #FEF8E9 35px,
+            #FEF8E9 70px
+        );
+    }
+}
