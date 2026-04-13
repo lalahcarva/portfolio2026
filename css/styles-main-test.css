@@ -80,7 +80,7 @@ body {
 .hero-text,
 .hero-image {
     flex: 1;
-    min-width: 280px;
+    min-width: 380px;
 }
 
 .hero-cursive {
@@ -138,18 +138,26 @@ body {
     font-size: 120px;
     color: var(--dark-blue);
     margin: 0;
-    transform: rotate(-1deg);
+    transform: rotate(-3 deg);
     font-family: "Poppins", sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     margin-left: 100px;
+    font-style: italic;
     white-space: nowrap; /* 👈 THIS FIXES YOUR ISSUE */
+}
+
+.title-main {
+    opacity: 0;
+    animation: writeIn 1.2s ease forwards;
 }
 
 .cursive-letter {
     font-family: "Cedarville Cursive", cursive;
     display: inline-block;
     transform: rotate(-3deg);
-    font-size: 130px;
+    font-size: 150px;
+        font-weight: 500;
+    font-style: normal;
 }
 
 .tiny-space {
